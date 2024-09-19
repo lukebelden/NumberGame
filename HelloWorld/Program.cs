@@ -11,11 +11,8 @@ namespace HelloWorld
             Random rnd = new Random();
             int computerNumber = rnd.Next(0, 101); // will random pick number
 
-            Console.WriteLine(computerNumber);
             Console.WriteLine("Hello Player, Would you like to play a game?"); // Introduction
             Console.WriteLine("Guess the number between 1 - 100. If you guess wrong it will out put higher or lower till you get correct number."); // Instruction
-
-            
 
             while (true)
             {
