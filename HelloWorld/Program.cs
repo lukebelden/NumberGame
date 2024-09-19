@@ -1,4 +1,6 @@
-﻿namespace NumberGame
+﻿using static System.Console;
+
+namespace NumberGame
 {
     internal class Program
     {
@@ -9,11 +11,11 @@
             int answer = rnd.Next(0, 100) + 1;
 
             // Introduction
-            Console.WriteLine("Hello Player, Would you like to play a game?");
+            WriteLine("Hello Player, Would you like to play a game?");
 
             // Instruction
-            Console.WriteLine("Guess the number between 1 - 100. If you guess wrong it will output higher or lower till you get correct number. Beware you only got 7 tries!");
-            Console.WriteLine();
+            WriteLine("Guess the number between 1 - 100. If you guess wrong it will output higher or lower till you get correct number. Beware you only got 7 tries!");
+            WriteLine();
 
             int tries = 0;
             int manyLetter = 0;
@@ -21,20 +23,20 @@
             while (true)
             {
                 // Player Input
-                string? userInput = Console.ReadLine();
+                string? userInput = ReadLine();
                 int.TryParse(userInput, out int guess);
 
                 // Input text error
                 if (guess == 0)
                 {
-                    Console.WriteLine("Please use numbers!");
-                    Console.WriteLine();
+                    WriteLine("Please use numbers!");
+                    WriteLine();
                     manyLetter++;
 
                     // too many letter
                     if (manyLetter == 5)
                     {
-                        Console.WriteLine("Stop using letter loser");
+                        WriteLine("Stop using letter loser");
                         break;
                     }
                     continue;
@@ -43,36 +45,36 @@
                 // Guess was lower
                 if (guess < answer) // Checking if number is less than random number
                 {
-                    Console.Write("Higher           ");
+                    Write("Higher           ");
                     tries++;
-                    Console.Write(tries);
-                    Console.Write(" Try");
-                    Console.WriteLine();
+                    Write(tries);
+                    Write(" Try");
+                    WriteLine();
                 }
                 
                 // Guess was higher
                 if (guess > answer) // Checking if number is greater than random number
                 {
-                    Console.Write("Lower            ");
+                    Write("Lower            ");
                     tries++;
-                    Console.Write(tries);
-                    Console.Write(" Try");
-                    Console.WriteLine();
+                    Write(tries);
+                    Write(" Try");
+                    WriteLine();
                 }
 
                 // answer is correct
                 if (guess == answer) // Checking if input matches the random number
                 {
-                    Console.WriteLine("Congrats");
-                    Console.WriteLine();
+                    WriteLine("Congrats");
+                    WriteLine();
                     break;
                 }
 
                 // tries lost
                 if (tries == 7)
                 {
-                    Console.WriteLine("Bummer better luck next time!");
-                    Console.WriteLine();
+                    WriteLine("Bummer better luck next time!");
+                    WriteLine();
                     break;
                 }
             }
